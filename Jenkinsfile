@@ -56,5 +56,11 @@ pipeline{
                 }
             }
          }
+         stage("Docker Image Build"){
+
+            steps{
+                sh 'docker build -t static-website:1.0 .'
+            }
+         }
     }
 }
