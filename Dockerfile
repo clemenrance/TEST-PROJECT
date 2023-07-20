@@ -4,7 +4,7 @@ COPY . /app
 RUN mvn install
 
 FROM tomcat
-RUN apt install openjdk-11-jdk /bin/bash
+RUN apt install java -y
 WORKDIR /app
 COPY --from=build /app/webapp/* /app/var/lib/tomcat/webapps
 EXPOSE 1010
