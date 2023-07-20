@@ -3,7 +3,8 @@ WORKDIR /app
 COPY /root/.jenkins/workspace/website/webapp/target/webapp.war /app
 RUN mvn install
 
-FROM nginx:alpine
+FROM tomcat9
 WORKDIR /app
-COPY /app/target/webapp.war /app
+COPY --from=build /app/webapp /app/var/lib/tomcat9/webapps
 EXPOSE 1010
+RUN ["webapp"]
