@@ -5,5 +5,5 @@ RUN mvn clean install
 
 FROM nginx:alpine
 WORKDIR /app
-COPY /app/target/webapp.war /app
+COPY --from=build /app/target/webapp.war /app
 EXPOSE 1010
