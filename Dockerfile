@@ -4,7 +4,6 @@ COPY . /app
 RUN mvn install
 
 FROM tomcat
-RUN apt install default-jdk -y
 RUN mkdir /app/tomcat
 WORKDIR /app/tomcat
 COPY --from=build /app/webapp/* /app/var/lib/tomcat/webapps
