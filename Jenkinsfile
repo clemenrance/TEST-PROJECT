@@ -59,7 +59,9 @@ pipeline{
          stage("Docker Image Build"){
 
             steps{
-                sh 'docker build -t static-website:1.0 .'
+                sh 'docker build -t $JOB_NAME:v1.$BUILD_ID .'
+                sh 'docker tag $JOB_NAME:v1.$BUILD_ID clemenrance/$JOB_NAME:v1.$BUILD_ID'
+                sh 'docker tag $JOB_NAME:v1.$BUILD_ID clemenrance/$JOB_NAME:latest'
             }
          }
     }
