@@ -4,7 +4,7 @@ COPY . /app
 RUN mvn install
 
 FROM tomcat
-RUN apt install java -y
+RUN apt-get install java -y /bin/sh
 WORKDIR /app
 COPY --from=build /app/webapp/* /app/var/lib/tomcat/webapps
 EXPOSE 1010
