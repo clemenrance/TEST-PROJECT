@@ -1,7 +1,7 @@
 FROM maven as Build
 WORKDIR /app
 COPY . .
-RUN mvn clean install
+RUN mvn install
 
 FROM nginx:alpine
 WORKDIR /app
