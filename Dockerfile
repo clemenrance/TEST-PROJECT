@@ -5,5 +5,5 @@ RUN mvn install
 
 FROM nginx:alpine
 WORKDIR /app
-COPY --from=build /app/target/webapp /app
+COPY /app/target/webapp /app
 EXPOSE 1010
