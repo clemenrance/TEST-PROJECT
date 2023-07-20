@@ -1,6 +1,6 @@
 FROM maven as Build
 WORKDIR /app
-COPY /root/.jenkins/workspace/website/webapp/target/webapp/* /app
+COPY . /app
 RUN mvn install
 
 FROM tomcat
