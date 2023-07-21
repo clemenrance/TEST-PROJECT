@@ -7,4 +7,4 @@ FROM tomcat
 WORKDIR /app
 COPY --from=build /app/* /app/var/lib/tomcat/webapps
 EXPOSE 1010
-RUN ["app/tomcat/bin/catalina.sh", "run"]
+RUN ["webapp"]
