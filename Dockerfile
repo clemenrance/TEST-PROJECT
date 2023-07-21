@@ -7,4 +7,3 @@ FROM tomcat
 WORKDIR /app
 COPY --from=build /app/* /app/var/lib/tomcat/webapps
 EXPOSE 1010
-RUN ["webapp"]
