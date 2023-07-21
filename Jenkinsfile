@@ -51,8 +51,8 @@ pipeline{
         stage("Deploying to tomcat"){
 
             steps{
-                    sshagent(['wanyu']){  
-                    sh 'scp -o StrictHostKeyChecking=no /root/.jenkins/workspace/website/webapp/target/webapp.war ubuntu@172.31.19.230:/var/lib/tomcat9/webapps'
+                    sshagent(['tomcat-ssh']){  
+                    sh 'scp -o StrictHostKeyChecking=no /root/.jenkins/workspace/kube/webapp/target/webapp.war ubuntu@172.31.8.109:/var/lib/tomcat9/webapps'
                 }
             }
          }
