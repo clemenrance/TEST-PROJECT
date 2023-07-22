@@ -64,5 +64,18 @@ pipeline{
                 sh 'docker tag $JOB_NAME:v1.$BUILD_ID clemenrance/$JOB_NAME:latest'
             }
          }
+         stage("Pushing Image to dockerub"){
+
+            stage{
+
+                script{
+                    withCredentials([string(credentialsId: 'docker-login', variable: 'docker-hub')]){
+                        sh 'docker login -u clemenrance -p ${docker-hub}'
+                        sh 'docker push clemenrance/$JOB_NAME:v1.$BUILD_ID'
+                        sh 'docker push clemenrance/$JOB_NAME:v1.latest'
+                    }
+                }
+            }
+         }
     }
 }
