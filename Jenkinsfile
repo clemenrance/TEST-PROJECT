@@ -69,8 +69,8 @@ pipeline{
             steps{
 
                 script{
-                    withCredentials([string(credentialsId: 'docker-login', variable: 'docker-hub')]){
-                        sh 'docker login -u clemenrance -p ${docker-hub}'
+                    withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhub_cred')]){
+                        sh 'docker login -u clemenrance -p $dockerhub_cred'
                         sh 'docker push clemenrance/$JOB_NAME:v1.$BUILD_ID'
                         sh 'docker push clemenrance/$JOB_NAME:v1.latest'
                     }
