@@ -4,4 +4,4 @@ COPY . /app
 RUN mvn install
 
 FROM nginx:alpine
-COPY ./webapp/target/webapp/* /usr/share/nginx/html/webapp
+COPY ./webapp/target/webapp/* ./app/usr/share/nginx/html/webapp
