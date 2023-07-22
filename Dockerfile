@@ -4,5 +4,4 @@ COPY . /app
 RUN mvn install
 
 FROM nginx:alpine
-WORKDIR /app
-COPY --from=build . /app/urs/share/nginx/html
+COPY --from=build /app/webapp/target/webapp.war /urs/share/nginx/html
