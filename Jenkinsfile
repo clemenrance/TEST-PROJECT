@@ -66,7 +66,7 @@ pipeline{
          }
          stage("Pushing Image to dockerub"){
 
-            stage{
+            steps{
 
                 script{
                     withCredentials([string(credentialsId: 'docker-login', variable: 'docker-hub')]){
